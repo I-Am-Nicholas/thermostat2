@@ -32,6 +32,7 @@ $( document ).ready(function() {
 
   $ ("#change-psm-on").click(function(){
     thermo.powerSavingModeOn();
+    $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-psm").text("ON");
   });

@@ -19,12 +19,19 @@ Thermostat.prototype.getCurrentTemperature = function() {
 
 Thermostat.prototype.increaseTemperature = function() {
   if ((this.temperature + 1) > this.MAX_TEMP){
+    this.rangeAlert();
     throw("Temperature cannot rise above the maximum.")
   } else {
     this.temperature += 1;
     this.mercuryAlignment();
   }
 };
+
+Thermostat.prototype.rangeAlert = function(){
+  if (this.isPowerSavingModeOn() == true){
+      document.getElementById('#text-divs').style.color = 'red';
+  }
+}
 
 Thermostat.prototype.decreaseTemperature = function() {
   if ((this.temperature - 1) < this.MIN_TEMP) {
@@ -53,6 +60,7 @@ Thermostat.prototype.mercuryAlignment = function() {
 }
 
 Thermostat.prototype.powerSavingModeOn = function() {
+  this.currentEnergyUsage();
   this.POWER_SAVER = true;
   this.MAX_TEMP = this.PSM_ON_MAX;
   this.temperature = this.PSM_ON_MAX;
@@ -70,13 +78,13 @@ Thermostat.prototype.isPowerSavingModeOn = function() {
 
 Thermostat.prototype.currentEnergyUsage = function() {
   var current = this.temperature;
-  if (current < this.LOWEST) {
-    return('Low');
+  if (current >= this.HIGHEST) {
+    return('High')
   }
-    else if (current >= this.HIGHEST) {
-    return('High');
+  if (current <= this.LOWEST) {
+    return('Low')
   }
-    else{
-    return('Medium');
+  else{
+    return('Medium')
   }
 };
