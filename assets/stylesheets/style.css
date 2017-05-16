@@ -26,7 +26,7 @@ button {
   border: 1px solid LightSeaGreen;
   position: relative;
   margin-top: 60px;
-  padding-top: 80px;
+  padding-top: 60px;
   height: 600px;
   width: 700px;
 }
@@ -34,13 +34,31 @@ button {
 #inner{
   float: left;
   position: relative;
-  margin: 0 0 0 75px;
+  margin: 0 0 0 90px;
   height: 500px;
 }
 
 #main {
-  font-size: 1.8em;
-  margin: 0 0 20px 0;
+  font-size: 1.9em;
+  margin: 0 0 20px 60px;
+}
+
+#info {
+  position: absolute;
+  margin: 35px 0 0 0;
+  left: 0;
+  height: 100px;
+  width: 120px;
+}
+
+.info-jr {
+  border: 1px black solid;
+  font-color: black;
+  margin: 0 0 5px 0;
+  line-height: 50px;
+  height: 50px;
+  width: 110px;
+  font-size: 0.4em;
 }
 
 #current-temp {
@@ -56,13 +74,14 @@ button {
 .text-divs {
   margin-top: 20px;
   padding: 5px;
+  font-size: 0.9em;
 }
 
 #temperature-gauge {
   border: 1px gray solid;
   background-color: hsla(50, 33%, 25%, 0.5);
   float: left;
-  margin: 0 0 75px 50px;
+  margin: 20px 0 75px 50px;
   position: relative;
   height: 460px;
   width: 65px;

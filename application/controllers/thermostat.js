@@ -4,8 +4,8 @@ var Thermostat = function() {
   this.DEFAULT_TEMP = 20;
   this.temperature = this.DEFAULT_TEMP;
   this.power_saver = false;
+  this.max_temp = 32;
   this.MIN_TEMP = 10;
-  this.MAX_TEMP = 32;
   this.PSM_ON_MAX = 25;
   this.PSM_OFF_MAX = 32;
   this.LOWEST = 18;
@@ -18,7 +18,7 @@ Thermostat.prototype.getCurrentTemperature = function() {
 };
 
 Thermostat.prototype.increaseTemperature = function() {
-  if ((this.temperature + 1) > this.MAX_TEMP){
+  if ((this.temperature + 1) > this.max_temp){
     throw("Temperature cannot rise above the maximum.")
   } else {
     this.temperature += 1;
@@ -55,14 +55,14 @@ Thermostat.prototype.mercuryAlignment = function() {
 Thermostat.prototype.powerSavingModeOn = function() {
   this.currentEnergyUsage();
   this.power_saver = true;
-  this.MAX_TEMP = this.PSM_ON_MAX;
+  this.max_temp = this.PSM_ON_MAX;
   this.temperature = this.PSM_ON_MAX;
   this.resetGauge();
 };
 
 Thermostat.prototype.powerSavingModeOff = function() {
   this.power_saver = false;
-  this.MAX_TEMP = this.PSM_OFF_MAX;
+  this.max_temp = this.PSM_OFF_MAX;
 };
 
 Thermostat.prototype.isPowerSavingModeOn = function() {
