@@ -5,11 +5,11 @@
 
 - git clone https://github.com/marudine/thermostat.git
 
-- From the same directory, type  - open assets/index.html
+- From the same directory type into your console - open assets/index.html
 
 ## To Run Jasmine Tests
 
-- From the same directory as above, type  - open specrunner.html
+- From the same directory as above type into your console - open specrunner.html
 
 
 ## Description
@@ -21,3 +21,9 @@
 ## Issues
 
 - The main problem I had was with handling the new syntax, as was to be expected. Coming from Ruby where the syntax is clean and neat yet not as stringent (semi-colons!) as JavaScript was a constant niggle.
+
+## Future Implementations
+
+- The temperature gauge should change colour accordingly.
+
+- Real-time weather information using an API.

@@ -3,14 +3,14 @@
 var Thermostat = function() {
   this.DEFAULT_TEMP = 20;
   this.temperature = this.DEFAULT_TEMP;
+  this.power_saver = false;
   this.MIN_TEMP = 10;
   this.MAX_TEMP = 32;
   this.PSM_ON_MAX = 25;
   this.PSM_OFF_MAX = 32;
-  this.POWER_SAVER = false;
   this.LOWEST = 18;
   this.HIGHEST = 25;
-  this.INCREMENT = 12;
+  this.GAUGE_INCREMENT = 14.25;
 };
 
 Thermostat.prototype.getCurrentTemperature = function() {
@@ -27,7 +27,7 @@ Thermostat.prototype.increaseTemperature = function() {
   }
 };
 
-Thermostat.prototype.rangeAlert = function(){
+Thermostat.prototype.rangeAlert = function() {
   if (this.isPowerSavingModeOn() == true){
       document.getElementById('#text-divs').style.color = 'red';
   }
@@ -61,19 +61,19 @@ Thermostat.prototype.mercuryAlignment = function() {
 
 Thermostat.prototype.powerSavingModeOn = function() {
   this.currentEnergyUsage();
-  this.POWER_SAVER = true;
+  this.power_saver = true;
   this.MAX_TEMP = this.PSM_ON_MAX;
   this.temperature = this.PSM_ON_MAX;
   this.resetGauge();
 };
 
 Thermostat.prototype.powerSavingModeOff = function() {
-  this.POWER_SAVER = false;
+  this.power_saver = false;
   this.MAX_TEMP = this.PSM_OFF_MAX;
 };
 
 Thermostat.prototype.isPowerSavingModeOn = function() {
-  return this.POWER_SAVER;
+  return this.power_saver;
 };
 
 Thermostat.prototype.currentEnergyUsage = function() {

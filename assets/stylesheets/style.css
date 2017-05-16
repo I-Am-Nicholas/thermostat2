@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/thermoBG.jpeg");
+  background-image: url("../images/field.jpg");
   font-family: "Helvetica";
   font-size: 2em;
   font-weight: bold;
@@ -22,29 +22,35 @@ button {
 }
 
 #outer{
-  background-color: hsla(50, 33%, 25%, 0.25);
-  border: 2px solid gray;
+  background-color: hsla(50, 33%, 25%, 0.5);
+  border: 1px solid LightSeaGreen;
   position: relative;
-  margin-top: 50px;
-  height: 525px;
-  width: 55%;
+  margin-top: 60px;
+  padding-top: 80px;
+  height: 600px;
+  width: 700px;
 }
 
 #inner{
   float: left;
   position: relative;
-  margin: 15px 0 0 150px;
-  width: 55%;
-  height: 100%;
+  margin: 0 0 0 75px;
+  height: 500px;
 }
 
 #main {
-font-size: 1.2em;
-margin: 20px 0 20px 0;
+  font-size: 1.8em;
+  margin: 0 0 20px 0;
 }
 
 #current-temp {
+  margin: 0 auto;
   font-size: 2.5em;
+}
+
+#unit {
+  position: absolute;
+  padding-top: 20px;
 }
 
 .text-divs {
@@ -56,9 +62,9 @@ margin: 20px 0 20px 0;
   border: 1px gray solid;
   background-color: hsla(50, 33%, 25%, 0.5);
   float: left;
-  margin: 50px 0 75px 100px;
+  margin: 0 0 75px 50px;
   position: relative;
-  height: 380px;
+  height: 460px;
   width: 65px;
 }
 
@@ -66,7 +72,7 @@ margin: 20px 0 20px 0;
   border-top-color: orange;
   border-width: 1px;
   border-style: solid;
-  background-color: hsla(0, 100%, 50%, 0.2);
+  background-color: hsla(0, 100%, 50%, 0.4);
   position: absolute;
   bottom: 0;
   height: 1%;

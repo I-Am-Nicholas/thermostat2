@@ -8,14 +8,14 @@ $( document ).ready(function() {
 
   $ ("#change-temp-up").click(function() {
     thermo.increaseTemperature();
-    $ ('#mercury').css('height', '+=' + thermo.INCREMENT);
+    $ ('#mercury').css('height', '+=' + thermo.GAUGE_INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
 
   $ ('#change-temp-down').click(function() {
     thermo.decreaseTemperature();
-    $('#mercury').css('height', '-=' + thermo.INCREMENT);
+    $('#mercury').css('height', '-=' + thermo.GAUGE_INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
