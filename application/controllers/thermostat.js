@@ -19,19 +19,12 @@ Thermostat.prototype.getCurrentTemperature = function() {
 
 Thermostat.prototype.increaseTemperature = function() {
   if ((this.temperature + 1) > this.MAX_TEMP){
-    this.rangeAlert();
     throw("Temperature cannot rise above the maximum.")
   } else {
     this.temperature += 1;
     this.mercuryAlignment();
   }
 };
-
-Thermostat.prototype.rangeAlert = function() {
-  if (this.isPowerSavingModeOn() == true){
-      document.getElementById('#text-divs').style.color = 'red';
-  }
-}
 
 Thermostat.prototype.decreaseTemperature = function() {
   if ((this.temperature - 1) < this.MIN_TEMP) {
