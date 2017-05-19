@@ -8,10 +8,16 @@ $( document ).ready(function() {
   $ ("#info-2").text("MIN: " + thermo.MIN_TEMP)
   thermo.resetGauge();
 
+  jQuery.fn.extend({
+    pump: function () {
+      $ (this).animate({fontSize: '0.45em'}, "fast");
+      $ (this).animate({fontSize: '0.4em'}, "fast");
+    }
+  });
+
   $ ("#change-temp-up").click(function() {
     if (thermo.temperature == thermo.max_temp) {
-      $ ("#info-1").animate({fontSize: '0.45em'}, "fast");
-      $ ("#info-1").animate({fontSize: '0.4em'}, "fast");
+      $ ("#info-1").pump()
     }
     thermo.increaseTemperature();
     $ ('#mercury').css('height', '+=' + thermo.GAUGE_INCREMENT);
@@ -20,6 +26,9 @@ $( document ).ready(function() {
   });
 
   $ ('#change-temp-down').click(function() {
+    if (thermo.temperature == thermo.MIN_TEMP) {
+      $ ("#info-2").pump()
+    }
     thermo.decreaseTemperature();
     $('#mercury').css('height', '-=' + thermo.GAUGE_INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
