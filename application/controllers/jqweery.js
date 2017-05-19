@@ -16,9 +16,7 @@ $( document ).ready(function() {
   });
 
   $ ("#change-temp-up").click(function() {
-    if (thermo.temperature == thermo.max_temp) {
-      $ ("#info-1").pump()
-    }
+    if (thermo.temperature == thermo.max_temp) { $ ("#info-1").pump() }
     thermo.increaseTemperature();
     $ ('#mercury').css('height', '+=' + thermo.GAUGE_INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
@@ -26,9 +24,7 @@ $( document ).ready(function() {
   });
 
   $ ('#change-temp-down').click(function() {
-    if (thermo.temperature == thermo.MIN_TEMP) {
-      $ ("#info-2").pump()
-    }
+    if (thermo.temperature == thermo.MIN_TEMP) { $ ("#info-2").pump()}
     thermo.decreaseTemperature();
     $('#mercury').css('height', '-=' + thermo.GAUGE_INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());

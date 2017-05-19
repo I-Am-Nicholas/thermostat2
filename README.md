@@ -18,9 +18,6 @@
 
 - I found this project perfect for learning JavaScript and the testing framework, Jasmine. It illuminated very well some basic differences and similarities between Ruby and JavaScript, not to mention between RSpec and Jasmine. There's good potential here for mapping connections between the two languages. This project is also beneficial for getting into a little CSS, HTML and JQuery.
 
-## Issues
-
-- The main problem I had was with handling the new syntax, as was to be expected. Coming from Ruby where the syntax is clean and neat yet not as stringent (semi-colons!) as JavaScript was a constant niggle.
 
 ## Future Implementations
 
