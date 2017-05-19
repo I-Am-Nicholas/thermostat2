@@ -13,13 +13,15 @@ var Thermostat = function() {
   this.GAUGE_INCREMENT = 14.25;
 };
 
+var messages = new Messages();
+
 Thermostat.prototype.getCurrentTemperature = function() {
  return this.temperature;
 };
 
 Thermostat.prototype.increaseTemperature = function() {
   if ((this.temperature + 1) > this.max_temp){
-    throw("Temperature cannot rise above the maximum.")
+    throw(messages.maxTempError())
   } else {
     this.temperature += 1;
     this.mercuryAlignment();
@@ -28,7 +30,7 @@ Thermostat.prototype.increaseTemperature = function() {
 
 Thermostat.prototype.decreaseTemperature = function() {
   if ((this.temperature - 1) < this.MIN_TEMP) {
-    throw("The temperature cannot fall below the minimum.")
+    throw(messages.minTempError())
   } else {
     this.temperature -= 1;
   }

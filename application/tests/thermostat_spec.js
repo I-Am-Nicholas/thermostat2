@@ -5,6 +5,7 @@ describe("Thermostat", function() {
 
   beforeEach(function(){
     thermostat = new Thermostat();
+    var messages = new Messages();
     spyOn(thermostat, 'resetGauge');
     spyOn(thermostat, 'mercuryAlignment');
   });
