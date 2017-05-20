@@ -8,5 +8,5 @@ Messages.prototype.maxTempError = function(){
 };
 
 Messages.prototype.minTempError = function(){
-  return "The temperature cannot fall below the minimum."
+  return "Temperature cannot fall below the minimum."
 };

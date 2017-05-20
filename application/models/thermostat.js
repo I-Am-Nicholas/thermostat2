@@ -49,9 +49,7 @@ Thermostat.prototype.resetGauge = function() {
 Thermostat.prototype.mercuryAlignment = function() {
   var merc = document.getElementById('mercury').style.height;
   var gauge = document.getElementById('temperature-gauge').clientHeight;
-  if (parseInt(merc) > parseInt(gauge)) {
-    merc = (gauge + 'px');
-  }
+  if (parseInt(merc) > parseInt(gauge)) { merc = (gauge + 'px'); }
 }
 
 Thermostat.prototype.powerSavingModeOn = function() {

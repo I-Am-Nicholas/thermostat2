@@ -37,7 +37,7 @@ describe("Thermostat", function() {
       for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
-      expect(function(){thermostat.decreaseTemperature();}).toThrow("The temperature cannot fall below the minimum.");
+      expect(function(){thermostat.decreaseTemperature();}).toThrow("Temperature cannot fall below the minimum.");
     });
 
     it("if temperature is attempted to be adjusted above 25 degrees when power saving is on", function(){

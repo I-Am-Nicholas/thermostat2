@@ -14,7 +14,7 @@ describe("Messages", function() {
     });
 
     it('the temperature adjustment is too low', function(){
-      expect(messages.minTempError()).toEqual("The temperature cannot fall below the minimum.");
+      expect(messages.minTempError()).toEqual("Temperature cannot fall below the minimum.");
     });
 
   });
