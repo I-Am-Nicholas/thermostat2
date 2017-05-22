@@ -3,13 +3,18 @@
 
 ## To Run Application
 
-- git clone https://github.com/marudine/thermostat.git
+- git clone https://github.com/marudine/thermostat2.git
 
 - From the same directory type into your console - open assets/index.html
 
 ## To Run Jasmine Tests
 
 - From the same directory as above type into your console - open specrunner.html
+
+## To Run the Application as it was two months before the above state...
+
+— same as above, only...
+git clone https://github.com/marudine/thermostat.git
 
 
 ## Description
