@@ -48,9 +48,13 @@ Thermostat.prototype.resetTemperature = function() {
   this.resetGauge();
 };
 
+
+Thermostat.prototype.mercuryShiftPercentage = function() {
+  return (this.temperature / this.PSM_OFF_MAX) * 100;
+}
+
 Thermostat.prototype.resetGauge = function() {
-  var reset = ((this.temperature / this.PSM_OFF_MAX) * 100)
-  document.getElementById('mercury').style.height = reset + '%'
+  document.getElementById('mercury').style.height = this.mercuryShiftPercentage() + '%'
 };
 
 Thermostat.prototype.mercuryAlignment = function() {

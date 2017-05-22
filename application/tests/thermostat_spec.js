@@ -25,10 +25,17 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
   });
 
-  it('calculates the incrementation of the mercury', function(){
-    expect(thermostat.gaugeIncrement()).toEqual(12);
-  });
+  describe('calculates', function(){
 
+    it('the incrementation of the mercury', function(){
+      expect(thermostat.gaugeIncrement()).toEqual(12);
+    });
+
+    it('the percentage of the gauge by which the mercury must move', function(){
+      expect(thermostat.mercuryShiftPercentage()).toEqual(62.5);
+    });
+
+  });
 
   describe("Reset Temperature button", function() {
     it("resets the temperature to the default value", function() {
