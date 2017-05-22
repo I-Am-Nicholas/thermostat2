@@ -10,7 +10,6 @@ var Thermostat = function() {
   this.PSM_OFF_MAX = 32;
   this.LOWEST = 18;
   this.HIGHEST = 25;
-  this.GAUGE_INCREMENT = 14.25;
 };
 
 var messages = new Messages();
@@ -34,6 +33,14 @@ Thermostat.prototype.decreaseTemperature = function() {
   } else {
     this.temperature -= 1;
   }
+};
+
+Thermostat.prototype.gaugeProperties = function() {
+  return document.getElementById('temperature-gauge').clientHeight;
+};
+
+Thermostat.prototype.gaugeIncrement = function() {
+  return this.gaugeProperties() / this.max_temp;
 };
 
 Thermostat.prototype.resetTemperature = function() {

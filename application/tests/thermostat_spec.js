@@ -8,23 +8,29 @@ describe("Thermostat", function() {
     var messages = new Messages();
     spyOn(thermostat, 'resetGauge');
     spyOn(thermostat, 'mercuryAlignment');
+    spyOn(thermostat, 'gaugeProperties').and.returnValue(384)
   });
 
-  it("Initializes at default temperature", function(){
+  it("initializes at default temperature", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
 
-  it("raises the temperature by 1 degree", function(){
+  it("raises the temperature by 1 degree", function() {
     thermostat.increaseTemperature()
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
   });
 
-  it("decreases the temperature by 1 degree", function(){
+  it("decreases the temperature by 1 degree", function() {
     thermostat.decreaseTemperature()
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
   });
 
-  describe("Reset Temperature button", function(){
+  it('calculates the incrementation of the mercury', function(){
+    expect(thermostat.gaugeIncrement()).toEqual(12);
+  });
+
+
+  describe("Reset Temperature button", function() {
     it("resets the temperature to the default value", function() {
       thermostat.increaseTemperature();
       thermostat.resetTemperature();
@@ -93,5 +99,6 @@ describe("Thermostat", function() {
       expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
     });
   });
+
 
 });
