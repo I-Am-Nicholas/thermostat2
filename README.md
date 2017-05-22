@@ -13,8 +13,11 @@
 
 ## To Run the Application as it was two months before the above state...
 
-- same as above, only instead...
-git clone https://github.com/marudine/thermostat.git
+- git clone https://github.com/marudine/thermostat.git
+
+- cd thermo
+
+- open index.html
 
 
 ## Description
