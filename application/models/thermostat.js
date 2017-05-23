@@ -57,10 +57,18 @@ Thermostat.prototype.resetGauge = function() {
   document.getElementById('mercury').style.height = this.mercuryShiftPercentage() + '%'
 };
 
+Thermostat.prototype.mercuryHeight = function(){
+  return document.getElementById('mercury').style.height;
+};
+
+Thermostat.prototype.gaugeHeight = function(){
+  return document.getElementById('temperature-gauge').clientHeight;
+};
+
 Thermostat.prototype.mercuryAlignment = function() {
-  var merc = document.getElementById('mercury').style.height;
-  var gauge = document.getElementById('temperature-gauge').clientHeight;
-  if (parseInt(merc) > parseInt(gauge)) { merc = (gauge + 'px'); }
+  if (parseInt(this.mercuryHeight()) > parseInt(this.gaugeHeight())) {
+    this.mercuryHeight() = (this.gaugeHeight() + 'px');
+  }
 }
 
 Thermostat.prototype.powerSavingModeOn = function() {

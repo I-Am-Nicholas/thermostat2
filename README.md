@@ -1,15 +1,11 @@
 
-# Thermostat - Revisiting my introduction to JavaScript, JQuery and Jasmine after two months
+# Thermostat(W.I.P) - Revisiting my introduction to JavaScript, JQuery and Jasmine after two months
 
 ## To Run Application
 
 - git clone https://github.com/marudine/thermostat2.git
 
 - From the same directory type into your console - open assets/index.html
-
-## To Run Jasmine Tests
-
-- From the same directory as above type into your console - open specrunner.html
 
 ## To Run the Application as it was two months before the above state...
 
@@ -18,6 +14,12 @@
 - cd thermo
 
 - open index.html
+
+
+## To Run Jasmine Tests
+
+- From the same directory as above type into your console - open specrunner.html
+
 
 
 ## Description
