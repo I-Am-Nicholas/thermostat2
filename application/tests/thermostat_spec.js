@@ -8,59 +8,48 @@ describe("Thermostat", function() {
     var messages = new Messages();
     spyOn(thermostat, 'resetGauge');
     spyOn(thermostat, 'mercuryAlignment');
-    spyOn(thermostat, 'gaugeProperties').and.returnValue(384)
+    var thermoHeight = 384
+    spyOn(thermostat, 'gaugeProperties').and.returnValue(thermoHeight)
   });
 
   it("initializes at default temperature", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
 
-  it("raises the temperature by 1 degree", function() {
-    thermostat.increaseTemperature()
-    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
-  });
-
-  it("decreases the temperature by 1 degree", function() {
-    thermostat.decreaseTemperature()
-    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
-  });
-
   describe('calculates', function(){
+    var thermoHeight = 384
 
     it('the incrementation of the mercury', function(){
-      expect(thermostat.gaugeIncrement()).toEqual(12);
+      expect(thermostat.gaugeIncrement()).toEqual(thermoHeight / thermostat.PSM_OFF_MAX);
     });
 
     it('the percentage of the gauge by which the mercury must move', function(){
       expect(thermostat.mercuryShiftPercentage()).toEqual(62.5);
     });
 
-  });
+    it('the height of the temperature gauge', function(){
+      expect(thermostat.gaugeProperties()).toEqual(thermoHeight)
+    })
 
-  describe("Reset Temperature button", function() {
-    it("resets the temperature to the default value", function() {
-      thermostat.increaseTemperature();
-      thermostat.resetTemperature();
-      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
-    });
   });
 
   describe("throws an error", function(){
-    it("if temperature is attempted to be adjusted to below 10 degrees", function(){
-      for(var i = 0; i < 10; i ++) {
+
+      it("if an attempt is made to lower temperature below minimum temperature", function() {
+        for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
       expect(function(){thermostat.decreaseTemperature();}).toThrow("Temperature cannot fall below the minimum.");
     });
 
-    it("if temperature is attempted to be adjusted above 25 degrees when power saving is on", function(){
+    it("if an attempt is made to raise temperature above max temperature with power saving mode on", function() {
       for(var i = 0; i < 5; i ++) {
         thermostat.powerSavingModeOn();
       }
       expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     });
 
-    it("if temperature is attempted to be adjusted above 32 degrees when power saving mode is off", function() {
+    it("if an attempt is made to raise temperature above max temperature with power saving mode off", function() {
       thermostat.powerSavingModeOff();
       for(var i = 0; i < 12; i ++) {
         thermostat.increaseTemperature();
@@ -68,44 +57,5 @@ describe("Thermostat", function() {
       expect(function() {thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     })
   });
-
-  describe("Displays current energy usage", function() {
-    it("as low-usage when below 18 degrees", function() {
-      for(var i = 0; i < 3; i ++) {
-        thermostat.decreaseTemperature();
-      }
-      expect(thermostat.currentEnergyUsage()).toEqual("Low")
-    });
-
-    it("as medium-usage when between 18 degrees and 24 degrees", function() {
-      expect(thermostat.currentEnergyUsage()).toEqual("Medium")
-    });
-
-    it("as high-usage when above 25 degrees", function() {
-      for(var i = 0; i < 5; i ++) {
-        thermostat.increaseTemperature();
-      }
-      expect(thermostat.currentEnergyUsage()).toEqual("High")
-    });
-  });
-
-  describe("Power Saving Mode", function() {
-    it('is on', function() {
-      thermostat.powerSavingModeOn();
-      expect(thermostat.isPowerSavingModeOn()).toEqual(true);
-    });
-
-    it('is off', function() {
-      thermostat.powerSavingModeOff();
-      expect(thermostat.isPowerSavingModeOn()).toEqual(false);
-    });
-
-    it('adjusts the temperature to the Power Saving Mode default', function(){
-      thermostat.increaseTemperature();
-      thermostat.powerSavingModeOn();
-      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
-    });
-  });
-
 
 });
