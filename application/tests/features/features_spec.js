@@ -45,14 +45,14 @@ describe("Features", function() {
     });
 
     describe("Displays current energy usage", function() {
-      it("as low-usage when below 18 degrees", function() {
+      it("as low-usage when below lowest temp setting", function() {
         for(var i = 0; i < 3; i ++) {
           thermostat.decreaseTemperature();
         }
         expect(thermostat.currentEnergyUsage()).toEqual("Low")
       });
 
-      it("as medium-usage when between 18 degrees and 24 degrees", function() {
+      it("as medium-usage when between lowest and max temp when psm is on", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Medium")
       });
 

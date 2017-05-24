@@ -2,13 +2,13 @@
 
 describe("Thermostat", function() {
   var thermostat;
+  var thermoHeight = 384;
 
   beforeEach(function(){
     thermostat = new Thermostat();
     var messages = new Messages();
     spyOn(thermostat, 'resetGauge');
     spyOn(thermostat, 'mercuryAlignment');
-    var thermoHeight = 384
     spyOn(thermostat, 'gaugeProperties').and.returnValue(thermoHeight)
   });
 
@@ -17,7 +17,6 @@ describe("Thermostat", function() {
   });
 
   describe('calculates', function(){
-    var thermoHeight = 384
 
     it('the incrementation of the mercury', function(){
       expect(thermostat.gaugeIncrement()).toEqual(thermoHeight / thermostat.PSM_OFF_MAX);
