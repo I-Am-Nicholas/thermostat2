@@ -1,8 +1,7 @@
 
 # Thermostat(W.I.P) - Revisiting my introduction to JavaScript, JQuery and Jasmine after two months
 
-![screen shot](https://cloud.githubusercontent.com/assets/24227633/26806929/49c79364-4a4b-11e7-82a3-75665853d75b.png)
-
+![screen shot 3](https://cloud.githubusercontent.com/assets/24227633/26807627/7496cca0-4a4f-11e7-9c1b-d09c55ed8efa.png)
 
 ## To Run Application
 

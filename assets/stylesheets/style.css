@@ -6,7 +6,7 @@ body {
 }
 
 button {
-  background-color: darkorange;
+  background-color: goldenrod;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -23,13 +23,13 @@ button:hover {
 }
 
 #outer{
-  background-color: hsla(70, 20%, 85%, 1);
-  border: 1px solid yellow;
+  background-color: hsla(202, 62%, 41%, 0.9);
+  border: 1px solid black;
   position: relative;
   margin-top: 60px;
   padding-top: 60px;
   height: 560px;
-  width: 650px;
+  width: 660px;
 }
 
 #inner{
