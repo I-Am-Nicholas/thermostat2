@@ -52,7 +52,7 @@ describe("Features", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Low")
       });
 
-      it("as medium-usage when between lowest and max temp when psm is on", function() {
+      it("as medium-usage when between lowest and max temp when psm is ", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Medium")
       });
 
