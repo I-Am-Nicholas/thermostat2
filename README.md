@@ -36,3 +36,5 @@
 - The temperature gauge should change colour accordingly.
 
 - Real-time weather information using an API.
+
+- User can alter colour-scheme.

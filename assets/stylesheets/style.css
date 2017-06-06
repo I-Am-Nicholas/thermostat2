@@ -23,7 +23,7 @@ button:hover {
 }
 
 #outer{
-  background-color: hsla(202, 62%, 41%, 0.9);
+  background-color: hsla(214, 41%, 65%, .9);
   border: 1px solid black;
   position: relative;
   margin-top: 60px;
