@@ -7,9 +7,8 @@ var Thermostat = function() {
   this.max_temp = 32;
   this.MIN_TEMP = 10;
   this.PSM_ON_MAX = 25;
-  this.PSM_OFF_MAX = 32;
+  this.PSM_OFF_MAX = this.max_temp;
   this.LOWEST = 18;
-  this.HIGHEST = 25;
 };
 
 var messages = new Messages();
@@ -99,7 +98,7 @@ Thermostat.prototype.currentEnergyUsage = function() {
 };
 
 Thermostat.prototype.highEnergyUsage = function() {
-  return (this.temperature >= this.HIGHEST)
+  return (this.temperature >= this.PSM_ON_MAX)
 };
 
 Thermostat.prototype.lowEnergyUsage = function() {

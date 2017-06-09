@@ -9,24 +9,28 @@ describe("Features", function() {
       spyOn(thermostat, 'resetGauge');
       spyOn(thermostat, 'mercuryAlignment');
     });
+  describe('adjusts the temperature,', function(){
 
-    it("raises the temperature by 1 degree", function() {
+    it(" raising it by 1 degree", function() {
       thermostat.increaseTemperature()
       expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
     });
 
-    it("decreases the temperature by 1 degree", function() {
+    it("decreasing it by 1 degree", function() {
       thermostat.decreaseTemperature()
       expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
     });
 
-    it("resets the temperature to the default value", function() {
+    it("resetting it to the default value", function() {
       thermostat.increaseTemperature();
       thermostat.resetTemperature();
       expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
     });
 
+  });
+
     describe("Power Saving Mode", function() {
+
       it('is on', function() {
         thermostat.powerSavingModeOn();
         expect(thermostat.isPowerSavingModeOn()).toEqual(true);
@@ -37,32 +41,36 @@ describe("Features", function() {
         expect(thermostat.isPowerSavingModeOn()).toEqual(false);
       });
 
-      it('adjusts the temperature to the Power Saving Mode default', function(){
+      it('adjusts the temperature to its default', function(){
         thermostat.increaseTemperature();
         thermostat.powerSavingModeOn();
         expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
       });
+
     });
 
     describe("Displays current energy usage", function() {
-      it("as low-usage when below lowest temp setting", function() {
+
+      it("as low when below lowest temp setting", function() {
         for(var i = 0; i < 3; i ++) {
           thermostat.decreaseTemperature();
         }
         expect(thermostat.currentEnergyUsage()).toEqual("Low")
       });
 
-      it("as medium-usage when between lowest and max temp when psm is ", function() {
+      it("as medium when between lowest and max temp when psm is ", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Medium")
       });
 
-      it("as high-usage when above 25 degrees", function() {
+      it("as high when above Power Saving Mode default", function() {
         for(var i = 0; i < 5; i ++) {
           thermostat.increaseTemperature();
         }
         expect(thermostat.currentEnergyUsage()).toEqual("High")
       });
+
     });
 
   });
+
 });
