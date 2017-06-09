@@ -32,18 +32,58 @@ describe("Thermostat", function() {
 
     describe('if energy usage is', function() {
 
-      it('high', function(){
-        thermostat.temperature = thermostat.max_temp;
-        expect(thermostat.highEnergyUsage()).toEqual(true)
+      describe('high', function() {
+
+        it('function returns true', function(){
+          thermostat.temperature = thermostat.max_temp;
+          expect(thermostat.highEnergyUsage()).toEqual(true)
+        });
+
+        it('function returns false', function(){
+          thermostat.temperature = thermostat.max_temp;
+          expect(thermostat.mediumEnergyUsage()).toEqual(false)
+        });
+
+        it('function returns false', function(){
+          thermostat.temperature = thermostat.max_temp;
+          expect(thermostat.lowEnergyUsage()).toEqual(false)
+        });
+
       });
 
-      it('medium', function(){
-        expect(thermostat.mediumEnergyUsage()).toEqual(true)
+      describe('medium', function() {
+
+        it('function returns true', function(){
+          expect(thermostat.mediumEnergyUsage()).toEqual(true)
+        });
+
+        it('function returns false', function(){
+          expect(thermostat.highEnergyUsage()).toEqual(false)
+        });
+
+        it('function returns false', function(){
+          expect(thermostat.lowEnergyUsage()).toEqual(false)
+        });
+
       });
 
-      it('low', function(){
-        thermostat.temperature = thermostat.MIN_TEMP;
-        expect(thermostat.lowEnergyUsage()).toEqual(true)
+      describe('low', function() {
+
+        it('function returns true', function(){
+          thermostat.temperature = thermostat.MIN_TEMP;
+          expect(thermostat.lowEnergyUsage()).toEqual(true)
+        });
+
+        it('function returns false', function(){
+          thermostat.temperature = thermostat.MIN_TEMP;
+          expect(thermostat.highEnergyUsage()).toEqual(false)
+        });
+
+        it('function returns false', function(){
+          thermostat.temperature = thermostat.MIN_TEMP;
+          expect(thermostat.mediumEnergyUsage()).toEqual(false)
+        });
+
       });
 
     });

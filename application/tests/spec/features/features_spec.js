@@ -9,25 +9,26 @@ describe("Features", function() {
       spyOn(thermostat, 'resetGauge');
       spyOn(thermostat, 'mercuryAlignment');
     });
-  describe('adjusts the temperature,', function(){
 
-    it(" raising it by 1 degree", function() {
-      thermostat.increaseTemperature()
-      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
+    describe('adjusts the temperature,', function(){
+
+      it(" raising it by 1 degree", function() {
+        thermostat.increaseTemperature()
+        expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
+      });
+
+      it("decreasing it by 1 degree", function() {
+        thermostat.decreaseTemperature()
+        expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
+      });
+
+      it("resetting it to the default value", function() {
+        thermostat.increaseTemperature();
+        thermostat.resetTemperature();
+        expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
+      });
+
     });
-
-    it("decreasing it by 1 degree", function() {
-      thermostat.decreaseTemperature()
-      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
-    });
-
-    it("resetting it to the default value", function() {
-      thermostat.increaseTemperature();
-      thermostat.resetTemperature();
-      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
-    });
-
-  });
 
     describe("Power Saving Mode", function() {
 
