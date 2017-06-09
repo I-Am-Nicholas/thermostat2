@@ -3,32 +3,32 @@
 describe("Messages", function() {
   var messages;
 
-  beforeEach(function(){
+  beforeEach(function() {
     messages = new Messages();
   });
 
-  describe('displays a warning if', function(){
+  describe('displays a warning if', function() {
 
-    it('the temperature adjustment is too high', function(){
+    it('the temperature adjustment is too high', function() {
       expect(messages.maxTempError()).toEqual("Temperature cannot rise above the maximum.");
     });
 
-    it('the temperature adjustment is too low', function(){
+    it('the temperature adjustment is too low', function() {
       expect(messages.minTempError()).toEqual("Temperature cannot fall below the minimum.");
     });
 
   });
-  describe('displays usage message as', function(){
+  describe('displays usage message as', function() {
 
-    it('High', function(){
+    it('High', function() {
       expect(messages.highTemp()).toEqual('High')
     });
 
-    it('Medium', function(){
+    it('Medium', function() {
       expect(messages.mediumTemp()).toEqual('Medium')
     });
 
-    it('Low', function(){
+    it('Low', function() {
       expect(messages.lowTemp()).toEqual('Low')
     });
 

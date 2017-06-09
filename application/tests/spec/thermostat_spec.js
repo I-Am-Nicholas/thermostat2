@@ -4,7 +4,7 @@ describe("Thermostat", function() {
   var thermostat;
   var thermoHeight = 384;
 
-  beforeEach(function(){
+  beforeEach(function() {
     thermostat = new Thermostat();
     var messages = new Messages();
     spyOn(thermostat, 'resetGauge');
@@ -16,9 +16,9 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
 
-  describe('calculates', function(){
+  describe('calculates', function() {
 
-    it('the incrementation of the mercury', function(){
+    it('the incrementation of the mercury', function() {
       expect(thermostat.gaugeIncrement()).toEqual(thermoHeight / thermostat.PSM_OFF_MAX);
     });
 
@@ -26,7 +26,7 @@ describe("Thermostat", function() {
       expect(thermostat.mercuryShiftPercentage()).toEqual(62.5);
     });
 
-    it('the height of the temperature gauge', function(){
+    it('the height of the temperature gauge', function() {
       expect(thermostat.gaugeProperties()).toEqual(thermoHeight)
     })
 
@@ -34,17 +34,17 @@ describe("Thermostat", function() {
 
       describe('high', function() {
 
-        it('function returns true', function(){
+        it('function returns true', function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.highEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.mediumEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.lowEnergyUsage()).toEqual(false)
         });
@@ -53,15 +53,15 @@ describe("Thermostat", function() {
 
       describe('medium', function() {
 
-        it('function returns true', function(){
+        it('function returns true', function() {
           expect(thermostat.mediumEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           expect(thermostat.highEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           expect(thermostat.lowEnergyUsage()).toEqual(false)
         });
 
@@ -69,17 +69,17 @@ describe("Thermostat", function() {
 
       describe('low', function() {
 
-        it('function returns true', function(){
+        it('function returns true', function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.lowEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.highEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function(){
+        it('function returns false', function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.mediumEnergyUsage()).toEqual(false)
         });
@@ -90,10 +90,10 @@ describe("Thermostat", function() {
 
   });
 
-  describe("throws an error", function(){
+  describe("throws an error", function() {
 
-      it("if an attempt is made to lower temperature below minimum temperature", function() {
-        for(var i = 0; i < 10; i ++) {
+    it("if an attempt is made to lower temperature below minimum temperature", function() {
+      for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
       expect(function(){thermostat.decreaseTemperature();}).toThrow("Temperature cannot fall below the minimum.");
@@ -112,7 +112,8 @@ describe("Thermostat", function() {
         thermostat.increaseTemperature();
       }
       expect(function() {thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
-    })
+    });
+
   });
 
 });

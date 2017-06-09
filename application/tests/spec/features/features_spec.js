@@ -10,7 +10,7 @@ describe("Features", function() {
       spyOn(thermostat, 'mercuryAlignment');
     });
 
-    describe('adjusts the temperature,', function(){
+    describe('adjusts the temperature,', function() {
 
       it(" raising it by 1 degree", function() {
         thermostat.increaseTemperature()
@@ -42,7 +42,7 @@ describe("Features", function() {
         expect(thermostat.isPowerSavingModeOn()).toEqual(false);
       });
 
-      it('adjusts the temperature to its default', function(){
+      it('adjusts the temperature to its default', function() {
         thermostat.increaseTemperature();
         thermostat.powerSavingModeOn();
         expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);

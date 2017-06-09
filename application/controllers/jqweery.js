@@ -41,7 +41,7 @@ $( document ).ready(function() {
       return thermo.isPowerSavingModeOn() == true ? "ON" : "OFF"
     });
 
-  $ ("#change-psm-on").click(function(){
+  $ ("#change-psm-on").click(function() {
     thermo.powerSavingModeOn();
     $ ("#info-1").text("MAX: " + thermo.PSM_ON_MAX)
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
@@ -49,7 +49,7 @@ $( document ).ready(function() {
     $ ("#current-psm").text("ON");
   });
 
-  $ ("#change-psm-off").click(function(){
+  $ ("#change-psm-off").click(function() {
     thermo.powerSavingModeOff();
     $ ("#info-1").text("MAX: " + thermo.PSM_OFF_MAX)
     $ ("#current-psm").text("OFF");
