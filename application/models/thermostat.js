@@ -89,14 +89,23 @@ Thermostat.prototype.isPowerSavingModeOn = function() {
 };
 
 Thermostat.prototype.currentEnergyUsage = function() {
-  var current = this.temperature;
-  if (current >= this.HIGHEST) {
-    return('High')
-  }
-  if (current <= this.LOWEST) {
-    return('Low')
-  }
-  else{
-    return('Medium')
-  }
+  if (this.highEnergyUsage()) {
+    return messages.highTemp();
+  };
+  if (this.lowEnergyUsage()) {
+    return messages.lowTemp();
+  };
+  return messages.mediumTemp();
+};
+
+Thermostat.prototype.highEnergyUsage = function() {
+  return (this.temperature >= this.HIGHEST)
+};
+
+Thermostat.prototype.lowEnergyUsage = function() {
+  return (this.temperature <= this.LOWEST)
+};
+
+Thermostat.prototype.mediumEnergyUsage = function() {
+  return (!this.highEnergyUsage() && !this.lowEnergyUsage())
 };

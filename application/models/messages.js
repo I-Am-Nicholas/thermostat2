@@ -10,3 +10,15 @@ Messages.prototype.maxTempError = function(){
 Messages.prototype.minTempError = function(){
   return "Temperature cannot fall below the minimum."
 };
+
+Messages.prototype.highTemp = function() {
+  return "High"
+};
+
+Messages.prototype.lowTemp = function() {
+  return "Low"
+};
+
+Messages.prototype.mediumTemp = function() {
+  return "Medium"
+};

@@ -30,6 +30,24 @@ describe("Thermostat", function() {
       expect(thermostat.gaugeProperties()).toEqual(thermoHeight)
     })
 
+    describe('if energy usage is', function() {
+
+      it('high', function(){
+        thermostat.temperature = thermostat.max_temp;
+        expect(thermostat.highEnergyUsage()).toEqual(true)
+      });
+
+      it('medium', function(){
+        expect(thermostat.mediumEnergyUsage()).toEqual(true)
+      });
+
+      it('low', function(){
+        thermostat.temperature = thermostat.MIN_TEMP;
+        expect(thermostat.lowEnergyUsage()).toEqual(true)
+      });
+
+    });
+
   });
 
   describe("throws an error", function(){
