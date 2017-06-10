@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 describe("Thermostat", function() {
   var thermostat;
@@ -7,79 +7,79 @@ describe("Thermostat", function() {
   beforeEach(function() {
     thermostat = new Thermostat();
     var messages = new Messages();
-    spyOn(thermostat, 'resetGauge');
-    spyOn(thermostat, 'mercuryAlignment');
-    spyOn(thermostat, 'gaugeProperties').and.returnValue(thermoHeight)
+    spyOn(thermostat, "resetGauge");
+    spyOn(thermostat, "mercuryAlignment");
+    spyOn(thermostat, "gaugeProperties").and.returnValue(thermoHeight)
   });
 
   it("initializes at default temperature", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
 
-  describe('calculates', function() {
+  describe("calculates", function() {
 
-    it('the incrementation of the mercury', function() {
+    it("the incrementation of the mercury", function() {
       expect(thermostat.gaugeIncrement()).toEqual(thermoHeight / thermostat.PSM_OFF_MAX);
     });
 
-    it('the percentage of the gauge by which the mercury must move', function(){
+    it("the percentage of the gauge by which the mercury must move", function(){
       expect(thermostat.mercuryShiftPercentage()).toEqual(62.5);
     });
 
-    it('the height of the temperature gauge', function() {
+    it("the height of the temperature gauge", function() {
       expect(thermostat.gaugeProperties()).toEqual(thermoHeight)
     })
 
-    describe('if energy usage is', function() {
+    describe("if energy usage is", function() {
 
-      describe('high', function() {
+      describe("high", function() {
 
-        it('function returns true', function() {
+        it("function returns true", function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.highEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.mediumEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           thermostat.temperature = thermostat.max_temp;
           expect(thermostat.lowEnergyUsage()).toEqual(false)
         });
 
       });
 
-      describe('medium', function() {
+      describe("medium", function() {
 
-        it('function returns true', function() {
+        it("function returns true", function() {
           expect(thermostat.mediumEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           expect(thermostat.highEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           expect(thermostat.lowEnergyUsage()).toEqual(false)
         });
 
       });
 
-      describe('low', function() {
+      describe("low", function() {
 
-        it('function returns true', function() {
+        it("function returns true", function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.lowEnergyUsage()).toEqual(true)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.highEnergyUsage()).toEqual(false)
         });
 
-        it('function returns false', function() {
+        it("function returns false", function() {
           thermostat.temperature = thermostat.MIN_TEMP;
           expect(thermostat.mediumEnergyUsage()).toEqual(false)
         });

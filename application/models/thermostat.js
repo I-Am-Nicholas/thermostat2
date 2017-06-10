@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var Thermostat = function() {
+function Thermostat() {
   this.DEFAULT_TEMP = 20;
   this.temperature = this.DEFAULT_TEMP;
   this.power_saver = false;
@@ -13,8 +13,11 @@ var Thermostat = function() {
 
 var messages = new Messages();
 
-Thermostat.prototype.getCurrentTemperature = function() {
- return this.temperature;
+Thermostat.prototype = {
+  constructor: Thermostat,
+  getCurrentTemperature: function() {
+    return this.temperature;
+  }
 };
 
 Thermostat.prototype.increaseTemperature = function() {
@@ -35,7 +38,7 @@ Thermostat.prototype.decreaseTemperature = function() {
 };
 
 Thermostat.prototype.gaugeProperties = function() {
-  return document.getElementById('temperature-gauge').clientHeight;
+  return document.getElementById("temperature-gauge").clientHeight;
 };
 
 Thermostat.prototype.gaugeIncrement = function() {
@@ -47,26 +50,25 @@ Thermostat.prototype.resetTemperature = function() {
   this.resetGauge();
 };
 
-
 Thermostat.prototype.mercuryShiftPercentage = function() {
   return (this.temperature / this.PSM_OFF_MAX) * 100;
 }
 
 Thermostat.prototype.resetGauge = function() {
-  document.getElementById('mercury').style.height = this.mercuryShiftPercentage() + '%'
+  document.getElementById("mercury").style.height = this.mercuryShiftPercentage() + '%'
 };
 
 Thermostat.prototype.mercuryHeight = function(){
-  return document.getElementById('mercury').style.height;
+  return document.getElementById("mercury").style.height;
 };
 
 Thermostat.prototype.gaugeHeight = function(){
-  return document.getElementById('temperature-gauge').clientHeight;
+  return document.getElementById("temperature-gauge").clientHeight;
 };
 
 Thermostat.prototype.mercuryAlignment = function() {
   if (parseInt(this.mercuryHeight()) > parseInt(this.gaugeHeight())) {
-    this.mercuryHeight() = (this.gaugeHeight() + 'px');
+    this.mercuryHeight() = (this.gaugeHeight() + "px");
   }
 }
 

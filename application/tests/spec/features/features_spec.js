@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 describe("Features", function() {
   describe("Thermostat", function() {
@@ -6,13 +6,13 @@ describe("Features", function() {
 
     beforeEach(function(){
       thermostat = new Thermostat();
-      spyOn(thermostat, 'resetGauge');
-      spyOn(thermostat, 'mercuryAlignment');
+      spyOn(thermostat, "resetGauge");
+      spyOn(thermostat, "mercuryAlignment");
     });
 
-    describe('adjusts the temperature,', function() {
+    describe("adjusts the temperature", function() {
 
-      it(" raising it by 1 degree", function() {
+      it("raising it by 1 degree", function() {
         thermostat.increaseTemperature()
         expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
       });
@@ -32,17 +32,17 @@ describe("Features", function() {
 
     describe("Power Saving Mode", function() {
 
-      it('is on', function() {
+      it("is on", function() {
         thermostat.powerSavingModeOn();
         expect(thermostat.isPowerSavingModeOn()).toEqual(true);
       });
 
-      it('is off', function() {
+      it("is off", function() {
         thermostat.powerSavingModeOff();
         expect(thermostat.isPowerSavingModeOn()).toEqual(false);
       });
 
-      it('adjusts the temperature to its default', function() {
+      it("adjusts the temperature to its default", function() {
         thermostat.increaseTemperature();
         thermostat.powerSavingModeOn();
         expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
@@ -59,7 +59,7 @@ describe("Features", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Low")
       });
 
-      it("as medium when between lowest and max temp when psm is ", function() {
+      it("as medium when between lowest and max temp when psm is on", function() {
         expect(thermostat.currentEnergyUsage()).toEqual("Medium")
       });
 

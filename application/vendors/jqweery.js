@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 $( document ).ready(function() {
   var thermo = new Thermostat();
@@ -10,23 +10,23 @@ $( document ).ready(function() {
 
   jQuery.fn.extend({
     pump: function () {
-      $ (this).animate({fontSize: '0.45em'}, "fast");
-      $ (this).animate({fontSize: '0.4em'}, "fast");
+      $ (this).animate({fontSize: "0.45em"}, "fast");
+      $ (this).animate({fontSize: "0.4em"}, "fast");
     }
   });
 
   $ ("#change-temp-up").click(function() {
     if (thermo.temperature == thermo.max_temp) { $ ("#info-1").pump() }
     thermo.increaseTemperature();
-    $ ('#mercury').css('height', '+=' + thermo.gaugeIncrement());
+    $ ("#mercury").css("height", "+=" + thermo.gaugeIncrement());
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
 
-  $ ('#change-temp-down').click(function() {
+  $ ("#change-temp-down").click(function() {
     if (thermo.temperature == thermo.MIN_TEMP) { $ ("#info-2").pump()}
     thermo.decreaseTemperature();
-    $('#mercury').css('height', '-=' + thermo.gaugeIncrement());
+    $("#mercury").css("height", "-=" + thermo.gaugeIncrement());
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
@@ -41,7 +41,7 @@ $( document ).ready(function() {
       return thermo.isPowerSavingModeOn() == true ? "ON" : "OFF"
     });
 
-  $ ("#change-psm-on").click(function() {
+  $ ("#change-psm-on").click(function(){
     thermo.powerSavingModeOn();
     $ ("#info-1").text("MAX: " + thermo.PSM_ON_MAX)
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
@@ -49,7 +49,7 @@ $( document ).ready(function() {
     $ ("#current-psm").text("ON");
   });
 
-  $ ("#change-psm-off").click(function() {
+  $ ("#change-psm-off").click(function(){
     thermo.powerSavingModeOff();
     $ ("#info-1").text("MAX: " + thermo.PSM_OFF_MAX)
     $ ("#current-psm").text("OFF");
