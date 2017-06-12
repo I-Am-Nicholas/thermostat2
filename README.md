@@ -30,11 +30,3 @@
 
 - I found this project perfect for learning JavaScript and the testing framework, Jasmine. It illuminated very well some basic differences and similarities between Ruby and JavaScript, not to mention between RSpec and Jasmine. There's good potential here for mapping connections between the two languages. This project is also beneficial for getting into a little CSS, HTML and JQuery.
 
-
-## Future Implementations
-
-- The temperature gauge should change colour accordingly.
-
-- Real-time weather information using an API.
-
-- User can alter colour-scheme.
