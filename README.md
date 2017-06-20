@@ -1,5 +1,5 @@
 
-# Thermostat(W.I.P) - Revisiting my introduction to JavaScript, JQuery and Jasmine after two months
+# Thermostat - Revisiting my introduction to JavaScript, JQuery and Jasmine after two months
 
 ![screen shot 3](https://cloud.githubusercontent.com/assets/24227633/26807627/7496cca0-4a4f-11e7-9c1b-d09c55ed8efa.png)
 
